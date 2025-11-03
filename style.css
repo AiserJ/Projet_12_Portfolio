@@ -19,7 +19,7 @@
 
 /* display background dark color on navbar scroll */
 .navbarScroll.navbarDark {
-    background-color: #5b5b5b;
+    background-color: #062b16;
 }
 
 /* hero background image */
@@ -51,7 +51,6 @@
     width: 100%;
 }
 .imageAboutPage {
-    border-radius: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -99,3 +98,93 @@
 }
 
 /* footer */
+
+
+
+/* =========================
+   CONTRASTE + FOCUS (ajouts)
+   ========================= */
+
+/* Variables simples réutilisées par tes règles existantes */
+:root{
+  --primary: #22c55e;           /* vert accessible */
+  --primary-contrast: #08210f;  /* texte sur vert */
+  --focus: #f59e0b;             /* anneau de focus bien visible */
+  --link: #2563eb;              /* bleu liens AA sur fond clair */
+}
+
+/* 1) Navbar sombre bien contrastée (AA) */
+.navbarScroll.navbarDark{
+  background-color: #0b572c; /* + sombre que #5b5b5b => blanc lisible (>= 7:1) */
+}
+.navbar.navbar-dark .nav-link{
+  color: #ffffff !important;
+  opacity: .9;
+}
+.navbar.navbar-dark .nav-link:hover,
+.navbar.navbar-dark .nav-link:focus{
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.navbar .navbar-toggler{
+  border-color: rgba(255,255,255,.7);
+}
+.navbar .navbar-toggler:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* 2) Héros: garantir le contraste du texte blanc sur l'image */
+.bgimage{
+  position: relative; /* déjà présent, on complète */
+}
+.bgimage::after{
+  content: "";
+  position: absolute; inset: 0;
+  /* voile sombre léger pour assurer le contraste du texte */
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
+  pointer-events: none;
+}
+.hero-text{
+  position: absolute; /* déjà dans ton CSS, on ajoute juste: */
+  z-index: 1;         /* passer devant le voile */
+  text-shadow: 0 2px 6px rgba(0,0,0,.5); /* lisibilité ++ */
+}
+
+/* 3) Liens et focus visibles partout (AA) */
+a{ color: var(--link); }
+a:hover{ text-decoration: underline; }
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* 4) Boutons (réutilise tes règles existantes) */
+.btn-primary{
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border: 1px solid rgba(0,0,0,.2);
+}
+.btn-primary:hover{ filter: brightness(.95); }
+.btn-primary:focus,
+.btn-primary:focus-visible{
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* 5) Colonnes Contact: contraste net sur fond clair/sombre */
+.contactColumn{
+  background: #0f172a0d; /* léger fond pour isoler le texte si besoin */
+  border-radius: 12px;
+  padding: 24px;
+}
+.contactColumn i{
+  /* vert plus lisible que #198754 si fond sombre */
+  color: #16a34a;
+}
+.contactColumn h4{ color: #0f172a; }   /* titres foncés sur fond clair */
+.contactColumn p{ color: #374151; }    /* texte second. bien contrasté */

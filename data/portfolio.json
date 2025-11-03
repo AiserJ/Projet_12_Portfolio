@@ -2,19 +2,19 @@
     {
         "image": "image1.png",
         "title": "Booki",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "text": "Création d'une page internet de voyage, ainsi que les pages responsives.",
+        "link": "https://github.com/AiserJ/Projet-OpenClassrooms"
     },
     {
-        "image": "image2.png",
-        "title": "Mon Vieux grimoire",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "studiojeun.png",
+        "title": "Studio Jeun",
+        "text": "Projet personnel de création de site internet autour de la sneakers.",
+        "link": "https://www.studiojeun.fr"
     },
     {
         "image": "image3.png",
         "title": "Kasa",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "text": "Projet de création d'application fondée avec React, HTML, et le CSS.",
+        "link": "https://github.com/AiserJ/Projet_8_Kasa"
     }
 ]
