@@ -32,11 +32,28 @@
 }
 /* text css above hero image*/
 .hero_title {
-    font-size: 4.5rem;
+  position: relative;
+  display: block; /* le titre prend toute la largeur */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-size: 4.5rem; /* ton ancienne taille */
+  margin-bottom: 1rem; /* petit espace avec la description */
 }
+
 .hero_desc {
-    font-size: 2rem;
+  position: relative;
+  display: block; /* le texte passe à la ligne automatiquement */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
 }
+
 .hero-text {
     text-align: center;
     position: absolute;
@@ -102,43 +119,58 @@
 
 
 /* =========================
-   CONTRASTE + FOCUS (ajouts)
+   CONTRASTE
    ========================= */
 
-/* Variables simples réutilisées par tes règles existantes */
+
 :root{
-  --primary: #22c55e;           /* vert accessible */
+  --primary: #22c55e; /* vert accessible */
   --primary-contrast: #08210f;  /* texte sur vert */
-  --focus: #f59e0b;             /* anneau de focus bien visible */
-  --link: #2563eb;              /* bleu liens AA sur fond clair */
+  --focus: #f59e0b;
+  --link: #2563eb; /* bleu liens AA sur fond clair */
 }
 
 /* 1) Navbar sombre bien contrastée (AA) */
-.navbarScroll.navbarDark{
-  background-color: #0b572c; /* + sombre que #5b5b5b => blanc lisible (>= 7:1) */
+/* --- NAVBAR PAR DÉFAUT (avant le scroll) --- */
+.navbar.navbar-dark {
+  background-color: rgba(0, 0, 0, 0.6); /* fond noir transparent */
+  backdrop-filter: blur(4px); /* petit flou pour moderniser le rendu */
+  transition: background-color 0.3s ease;
 }
-.navbar.navbar-dark .nav-link{
+
+/* --- NAVBAR APRÈS LE SCROLL (fond vert solide) --- */
+.navbarScroll.navbarDark {
+  background-color: #0b572c; /* fond vert sombre bien contrasté */
+}
+
+/* --- LIENS --- */
+.navbar.navbar-dark .nav-link {
   color: #ffffff !important;
-  opacity: .9;
+  opacity: 0.9;
 }
+
 .navbar.navbar-dark .nav-link:hover,
-.navbar.navbar-dark .nav-link:focus{
+.navbar.navbar-dark .nav-link:focus {
   opacity: 1;
   text-decoration: underline;
-  text-underline-offset: .2em;
+  text-underline-offset: 0.2em;
 }
-.navbar .navbar-toggler{
-  border-color: rgba(255,255,255,.7);
+
+/* --- TOGGLER (bouton menu mobile) --- */
+.navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.7);
 }
-.navbar .navbar-toggler:focus{
-  outline: 3px solid var(--focus);
+
+.navbar .navbar-toggler:focus {
+  outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
 
 /* 2) Héros: garantir le contraste du texte blanc sur l'image */
 .bgimage{
-  position: relative; /* déjà présent, on complète */
+  position: relative; /* Même s'il est déjà présent, je complète */
 }
+
 .bgimage::after{
   content: "";
   position: absolute; inset: 0;
@@ -146,9 +178,10 @@
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
   pointer-events: none;
 }
+
 .hero-text{
-  position: absolute; /* déjà dans ton CSS, on ajoute juste: */
-  z-index: 1;         /* passer devant le voile */
+  position: absolute; /* déjà dans le CSS, j'ajuste */
+  z-index: 1;         /* passer devant le voile pour que ça soit lisible! */
   text-shadow: 0 2px 6px rgba(0,0,0,.5); /* lisibilité ++ */
 }
 
@@ -163,7 +196,7 @@ button:focus-visible,
   border-radius: 4px;
 }
 
-/* 4) Boutons (réutilise tes règles existantes) */
+/* 4) Boutons (réutilise les règles existantes) */
 .btn-primary{
   background: var(--primary);
   color: var(--primary-contrast);
@@ -183,8 +216,9 @@ button:focus-visible,
   padding: 24px;
 }
 .contactColumn i{
-  /* vert plus lisible que #198754 si fond sombre */
+  /* vert plus lisible que celui de base au cas où fond sombre */
   color: #16a34a;
 }
 .contactColumn h4{ color: #0f172a; }   /* titres foncés sur fond clair */
-.contactColumn p{ color: #374151; }    /* texte second. bien contrasté */
+.contactColumn p{ color: #374151; }    /* texte second, bien contrasté */
+/* Finito du contraste! */
