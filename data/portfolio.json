@@ -1,20 +1,20 @@
 [
   {
-    "image": "image1.png",
+    "image": "booki.webp",
     "title": "Booki",
     "text": "Création d'une page internet de voyage, ainsi que les pages responsives.",
     "link": "https://github.com/AiserJ/Projet-OpenClassrooms",
     "alt": "Navigation du site Booki présentant des hébergements et activités de voyage"
   },
   {
-    "image": "image2.png",
+    "image": "studioimage.webp",
     "title": "Studio Jeun",
     "text": "Projet personnel de création de site internet autour de la sneakers.",
     "link": "https://www.studiojeun.fr",
     "alt": "Page d'accueil du site Studio Jeun sur la customisation et restauration de sneakers"
   },
   {
-    "image": "image3.png",
+    "image": "kasa.webp",
     "title": "Kasa",
     "text": "Projet de création d'application fondée avec React, HTML, et le CSS.",
     "link": "https://github.com/AiserJ/Projet_8_Kasa",
